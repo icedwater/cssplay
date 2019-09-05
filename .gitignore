@@ -1,0 +1,5 @@
+# vim temp files
+*.sw*
+
+# python temp files
+*.py*
