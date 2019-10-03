@@ -1,0 +1,68 @@
+[data-loading] {
+    position: fixed;
+    display: block;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+[data-loading] > * {
+    display: block;
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+[data-loading] > *:first-child {
+    top: 0;
+    left: 0;
+    background: black;
+}
+
+[data-loading] > *:last-child {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+    background: red;
+}
+
+[data-loading] > * > * {
+    display: block;
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    top: 45vh;
+    right: 0;
+    background: red;
+}
+
+[data-loading] > *:last-child > * {
+    background: black;
+}
+
+[data-loading="complete"] {
+    animation: close 0s forwards;
+    animation-delay: 3s;
+}
+
+[data-loading="complete"] > * {
+    animation: open 1s forwards;
+    animation-delay: 2s;
+}
+
+@keyframes open {
+    from {
+        height: 100vh;
+    }
+    to {
+        height: 0;
+    }
+}
+
+@keyframes close {
+    to {
+        z-index: -100;
+    }
+}
